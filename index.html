@@ -1,56 +1,853 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JobPilot AI — Your Career Copilot</title>
-<meta name="description" content="JobPilot AI helps you discover jobs, tailor resumes, track applications and prepare for interviews.">
-<style>
-:root{--bg:#08111f;--panel:#101d31;--panel2:#14243b;--text:#f8fbff;--muted:#a9b8cf;--line:rgba(255,255,255,.11);--blue:#60a5fa;--violet:#a78bfa;--green:#34d399;--pink:#f472b6}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(circle at 10% 0%,#1c2d58 0,transparent 35%),radial-gradient(circle at 90% 10%,#3b1f58 0,transparent 30%),var(--bg);color:var(--text);line-height:1.6}
-a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.25rem}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--violet));box-shadow:0 8px 30px #6366f155}.navlinks{display:flex;gap:24px;color:var(--muted);font-size:.94rem}.navlinks a:hover{color:white}.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);border-radius:13px;padding:12px 18px;font-weight:750;cursor:pointer;transition:.2s}.btn.primary{background:linear-gradient(135deg,#3b82f6,#7c3aed);border:0;box-shadow:0 10px 30px #4f46e540}.btn:hover{transform:translateY(-2px)}.hero{padding:75px 0 55px;display:grid;grid-template-columns:1.05fr .95fr;gap:55px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:#c4b5fd;background:#a78bfa16;border:1px solid #a78bfa44;padding:7px 12px;border-radius:999px;font-size:.82rem;font-weight:800}.hero h1{font-size:clamp(2.7rem,6vw,5.4rem);line-height:1.03;letter-spacing:-.065em;margin:20px 0}.gradient{background:linear-gradient(100deg,#93c5fd,#c4b5fd,#f9a8d4);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:1.12rem;color:var(--muted);max-width:600px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.trust{display:flex;gap:20px;flex-wrap:wrap;color:#cbd5e1;font-size:.9rem}.mock{background:linear-gradient(145deg,#172942,#0d182b);border:1px solid var(--line);border-radius:25px;padding:18px;box-shadow:0 30px 90px #0006;transform:rotate(1deg)}.mocktop{display:flex;justify-content:space-between;align-items:center;color:#cbd5e1;font-size:.8rem;margin-bottom:16px}.dots{display:flex;gap:5px}.dots i{width:8px;height:8px;border-radius:50%;background:#64748b}.dash{background:#0a1424;border:1px solid var(--line);border-radius:17px;padding:18px}.dashhead{display:flex;justify-content:space-between;gap:10px;align-items:center}.avatar{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#34d399,#3b82f6);display:grid;place-items:center;font-weight:900}.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.mini{background:#12233a;border:1px solid var(--line);padding:13px;border-radius:13px}.mini small{color:#94a3b8}.mini strong{display:block;font-size:1.5rem}.chart{height:130px;display:flex;align-items:end;gap:8px;padding:15px 0}.bar{flex:1;border-radius:7px 7px 2px 2px;background:linear-gradient(#60a5fa,#6366f1);min-height:20px}.section{padding:80px 0}.sectionhead{text-align:center;max-width:700px;margin:0 auto 38px}.sectionhead h2{font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.045em;margin:10px 0}.sectionhead p{color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:linear-gradient(145deg,#122239,#0d192a);border:1px solid var(--line);border-radius:20px;padding:24px}.icon{width:46px;height:46px;display:grid;place-items:center;border-radius:14px;background:#60a5fa18;color:#93c5fd;font-size:1.35rem}.card h3{margin:18px 0 8px}.card p{color:var(--muted);font-size:.94rem}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.step{position:relative;padding:28px;border:1px solid var(--line);border-radius:20px;background:#ffffff06}.number{color:#93c5fd;font-weight:900;font-size:.85rem}.cta{background:linear-gradient(120deg,#1d4ed8,#6d28d9);border-radius:28px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:25px}.cta h2{font-size:2.3rem;line-height:1.1;margin:0}.cta p{color:#dbeafe}.footer{padding:30px 0 45px;color:#91a3bd;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.9rem}@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:40px}.cards{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.navlinks{display:none}.cta{flex-direction:column;align-items:flex-start;padding:30px}}@media(max-width:520px){.cards{grid-template-columns:1fr}.hero h1{font-size:2.8rem}.mini-grid{grid-template-columns:1fr}.cta h2{font-size:1.8rem}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>JobPilot AI — Intelligent Career Assistant</title>
+
+  <meta
+    name="description"
+    content="JobPilot AI is an AI-powered career assistant for job discovery, resume improvement, interview preparation and application tracking."
+  >
+
+  <style>
+    :root {
+      --bg: #08111f;
+      --panel: #101d31;
+      --panel-light: #14243b;
+      --text: #f8fbff;
+      --muted: #a9b8cf;
+      --line: rgba(255, 255, 255, 0.11);
+      --blue: #60a5fa;
+      --violet: #a78bfa;
+      --green: #34d399;
+      --pink: #f472b6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, #1c2d58 0, transparent 35%),
+        radial-gradient(circle at 90% 10%, #3b1f58 0, transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1160px, 92%);
+      margin: auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.25rem;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      box-shadow: 0 8px 30px #6366f155;
+    }
+
+    .brand span:last-child {
+      color: var(--violet);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .navlinks a:hover {
+      color: white;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 12px 18px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #3b82f6, #7c3aed);
+      border: 0;
+      box-shadow: 0 10px 30px #4f46e540;
+    }
+
+    .hero {
+      padding: 75px 0 55px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #c4b5fd;
+      background: #a78bfa16;
+      border: 1px solid #a78bfa44;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 6vw, 5.4rem);
+      line-height: 1.03;
+      letter-spacing: -0.065em;
+      margin: 20px 0;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        100deg,
+        #93c5fd,
+        #c4b5fd,
+        #f9a8d4
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 600px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 28px 0;
+    }
+
+    .trust {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
+    .mock {
+      background: linear-gradient(145deg, #172942, #0d182b);
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      padding: 18px;
+      box-shadow: 0 30px 90px #0006;
+      transform: rotate(1deg);
+    }
+
+    .mocktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: #cbd5e1;
+      font-size: 0.8rem;
+      margin-bottom: 16px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .dots i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #64748b;
+    }
+
+    .dash {
+      background: #0a1424;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 18px;
+    }
+
+    .dashhead {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .dashhead strong {
+      font-size: 1.15rem;
+    }
+
+    .dashhead small {
+      display: block;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      margin-top: 4px;
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #34d399, #3b82f6);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: white;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .mini {
+      background: #12233a;
+      border: 1px solid var(--line);
+      padding: 13px;
+      border-radius: 13px;
+    }
+
+    .mini small {
+      color: #94a3b8;
+      display: block;
+      font-size: 0.75rem;
+    }
+
+    .mini strong {
+      display: block;
+      font-size: 1.3rem;
+      margin: 5px 0;
+    }
+
+    .mini span {
+      color: #93c5fd;
+      font-size: 0.72rem;
+    }
+
+    .chart-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+    }
+
+    .chart-title span {
+      color: #94a3b8;
+    }
+
+    .chart {
+      height: 130px;
+      display: flex;
+      align-items: end;
+      gap: 8px;
+      padding: 15px 0;
+    }
+
+    .bar {
+      flex: 1;
+      min-height: 20px;
+      border-radius: 7px 7px 2px 2px;
+      background: linear-gradient(#60a5fa, #6366f1);
+    }
+
+    .insight {
+      padding: 13px;
+      border: 1px solid #34d39944;
+      background: #34d3990d;
+      border-radius: 12px;
+      color: #a7f3d0;
+      font-size: 0.85rem;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .sectionhead {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 38px;
+    }
+
+    .sectionhead h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.045em;
+      margin: 10px 0;
+      line-height: 1.15;
+    }
+
+    .sectionhead p {
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #122239, #0d192a);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #60a5fa66;
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #60a5fa18;
+      color: #93c5fd;
+      font-size: 1.35rem;
+    }
+
+    .card h3 {
+      margin: 18px 0 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #ffffff06;
+    }
+
+    .number {
+      color: #93c5fd;
+      font-weight: 900;
+      font-size: 0.85rem;
+    }
+
+    .step p {
+      color: var(--muted);
+    }
+
+    .tech-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .tech {
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #dbeafe;
+      background: #ffffff08;
+      font-weight: 700;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .workflow-item {
+      background: linear-gradient(145deg, #122239, #0d192a);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .workflow-item h3 {
+      margin-top: 0;
+    }
+
+    .workflow-item p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .cta {
+      background: linear-gradient(120deg, #1d4ed8, #6d28d9);
+      border-radius: 28px;
+      padding: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .cta h2 {
+      font-size: 2.3rem;
+      line-height: 1.1;
+      margin: 0;
+    }
+
+    .cta p {
+      color: #dbeafe;
+    }
+
+    .cta .btn {
+      background: white;
+      color: #1e3a8a;
+      border: 0;
+      white-space: nowrap;
+    }
+
+    .footer {
+      padding: 30px 0 45px;
+      color: #91a3bd;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps,
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta h2 {
+        font-size: 1.8rem;
+      }
+
+      .mock {
+        transform: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="wrap nav">
-<a class="brand" href="#"><span class="logo">✦</span> JobPilot <span style="color:#a78bfa">AI</span></a>
-<nav class="navlinks"><a href="#features">Features</a><a href="#how">How it works</a><a href="#about">About</a></nav>
-<a class="btn primary" href="#launch">Get started ↗</a>
-</header>
-<main>
-<section class="wrap hero">
-<div>
-<span class="eyebrow">✦ Your intelligent career copilot</span>
-<h1>Land your next job with <span class="gradient">confidence.</span></h1>
-<p>Discover better opportunities, create tailored resumes, track every application and prepare for interviews — all in one beautiful workspace.</p>
-<div class="actions"><a class="btn primary" href="#launch">Explore JobPilot →</a><a class="btn" href="#features">See features ↓</a></div>
-<div class="trust"><span>✓ Smart job matching</span><span>✓ Resume intelligence</span><span>✓ Interview practice</span></div>
-</div>
-<div class="mock" aria-label="JobPilot dashboard preview">
-<div class="mocktop"><div class="dots"><i></i><i></i><i></i></div><span>JobPilot workspace</span><span>•••</span></div>
-<div class="dash">
-<div class="dashhead"><div><strong style="font-size:1.2rem">Good morning, Prakash 👋</strong><div style="color:#94a3b8;font-size:.8rem">Your career progress at a glance</div></div><div class="avatar">P</div></div>
-<div class="mini-grid"><div class="mini"><small>Applications</small><strong>24</strong><span style="color:#34d399;font-size:.75rem">↗ 18% this month</span></div><div class="mini"><small>Interviews</small><strong>08</strong><span style="color:#93c5fd;font-size:.75rem">Upcoming</span></div><div class="mini"><small>Match score</small><strong>92%</strong><span style="color:#c4b5fd;font-size:.75rem">Excellent</span></div></div>
-<div style="display:flex;justify-content:space-between;color:#cbd5e1;font-size:.85rem"><strong>Application activity</strong><span>Last 7 days</span></div>
-<div class="chart"><div class="bar" style="height:35%"></div><div class="bar" style="height:55%"></div><div class="bar" style="height:42%"></div><div class="bar" style="height:78%"></div><div class="bar" style="height:62%"></div><div class="bar" style="height:90%"></div><div class="bar" style="height:72%"></div></div>
-<div style="padding:13px;border:1px solid #34d39944;background:#34d3990d;border-radius:12px;color:#a7f3d0;font-size:.85rem">✦ AI insight: Your profile is ready for senior analyst roles.</div>
-</div></div>
-</section>
-<section id="features" class="section wrap">
-<div class="sectionhead"><span class="eyebrow">Everything in one place</span><h2>Built for your next <span class="gradient">big opportunity.</span></h2><p>A focused toolkit that turns job searching from stressful to strategic.</p></div>
-<div class="cards">
-<article class="card"><div class="icon">⌕</div><h3>Smart job discovery</h3><p>Find relevant roles faster with intelligent matching and priority recommendations.</p></article>
-<article class="card"><div class="icon">✎</div><h3>Resume studio</h3><p>Create, improve and tailor your resume for each role with AI-powered suggestions.</p></article>
-<article class="card"><div class="icon">▣</div><h3>Application tracker</h3><p>Keep every company, status, follow-up and next step organized in one view.</p></article>
-<article class="card"><div class="icon">◎</div><h3>Interview coach</h3><p>Practice realistic questions, improve your answers and walk in prepared.</p></article>
-</div>
-</section>
-<section id="how" class="section wrap">
-<div class="sectionhead"><span class="eyebrow">Simple by design</span><h2>Your career journey, <span class="gradient">simplified.</span></h2></div>
-<div class="steps"><div class="step"><div class="number">01 / DISCOVER</div><h3>Find the right roles</h3><p style="color:var(--muted)">Explore opportunities that fit your skills, experience and goals.</p></div><div class="step"><div class="number">02 / PREPARE</div><h3>Show your best self</h3><p style="color:var(--muted)">Build a stronger resume and practice interviews with focused guidance.</p></div><div class="step"><div class="number">03 / WIN</div><h3>Track your progress</h3><p style="color:var(--muted)">Manage applications, follow-ups and milestones until you land the offer.</p></div></div>
-</section>
-<section id="launch" class="section wrap"><div class="cta"><div><h2>Ready to pilot your career?</h2><p>Start building a smarter, more confident job search today.</p></div><a class="btn" style="background:white;color:#1e3a8a;border:0" href="mailto:hello@example.com">Contact JobPilot ↗</a></div></section>
-</main>
-<footer id="about" class="wrap footer"><span>© 2026 JobPilot AI. Built for ambitious careers.</span><span>Made with focus, clarity and AI ✦</span></footer>
+  <header class="wrap nav">
+    <a class="brand" href="#">
+      <span class="logo">✦</span>
+      JobPilot <span>AI</span>
+    </a>
+
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#technology">Technology</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <a class="btn primary" href="#launch">
+      Explore platform ↗
+    </a>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <span class="eyebrow">
+          ✦ Intelligent career assistance
+        </span>
+
+        <h1>
+          Your smarter path to
+          <span class="gradient">career success.</span>
+        </h1>
+
+        <p>
+          JobPilot AI is an AI-powered career assistant that helps users
+          discover job opportunities, improve resumes, prepare for interviews
+          and organize their job-search journey in one centralized platform.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="#features">
+            Explore JobPilot AI →
+          </a>
+
+          <a class="btn" href="#how">
+            How it works ↓
+          </a>
+        </div>
+
+        <div class="trust">
+          <span>✓ AI-powered assistance</span>
+          <span>✓ Career-focused tools</span>
+          <span>✓ Centralized workflow</span>
+        </div>
+      </div>
+
+      <div class="mock" aria-label="JobPilot AI platform preview">
+        <div class="mocktop">
+          <div class="dots">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+
+          <span>JobPilot AI workspace</span>
+          <span>•••</span>
+        </div>
+
+        <div class="dash">
+          <div class="dashhead">
+            <div>
+              <strong>Career workspace</strong>
+              <small>AI-powered job-search overview</small>
+            </div>
+
+            <div class="avatar">✦</div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini">
+              <small>Job discovery</small>
+              <strong>AI</strong>
+              <span>Smart recommendations</span>
+            </div>
+
+            <div class="mini">
+              <small>Resume tools</small>
+              <strong>CV</strong>
+              <span>Role-focused improvements</span>
+            </div>
+
+            <div class="mini">
+              <small>Interview</small>
+              <strong>AI</strong>
+              <span>Practice and guidance</span>
+            </div>
+          </div>
+
+          <div class="chart-title">
+            <strong>Career workflow</strong>
+            <span>Product preview</span>
+          </div>
+
+          <div class="chart" aria-hidden="true">
+            <div class="bar" style="height: 35%"></div>
+            <div class="bar" style="height: 55%"></div>
+            <div class="bar" style="height: 42%"></div>
+            <div class="bar" style="height: 78%"></div>
+            <div class="bar" style="height: 62%"></div>
+            <div class="bar" style="height: 90%"></div>
+            <div class="bar" style="height: 72%"></div>
+          </div>
+
+          <div class="insight">
+            ✦ AI insight: Prepare, organize and improve every stage
+            of your job-search journey.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section wrap">
+      <div class="sectionhead">
+        <span class="eyebrow">Powerful career tools</span>
+
+        <h2>
+          Everything needed for a
+          <span class="gradient">smarter job search.</span>
+        </h2>
+
+        <p>
+          JobPilot AI brings essential career-support capabilities together
+          in a single, focused experience.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">⌕</div>
+          <h3>Smart job discovery</h3>
+          <p>
+            Discover relevant job opportunities with intelligent matching
+            based on skills, experience and career goals.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">✎</div>
+          <h3>Resume assistance</h3>
+          <p>
+            Improve resume content, highlight relevant skills and tailor
+            professional information for specific job roles.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">▣</div>
+          <h3>Application tracking</h3>
+          <p>
+            Organize job applications, monitor progress and manage important
+            follow-ups throughout the recruitment process.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">◎</div>
+          <h3>Interview preparation</h3>
+          <p>
+            Practice interview questions, improve responses and prepare
+            more confidently for technical and behavioral interviews.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" class="section wrap">
+      <div class="sectionhead">
+        <span class="eyebrow">Simple career workflow</span>
+
+        <h2>
+          From job search to interview,
+          <span class="gradient">all in one flow.</span>
+        </h2>
+
+        <p>
+          JobPilot AI is designed to support the complete job-search journey.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="number">01 / DISCOVER</div>
+          <h3>Find suitable opportunities</h3>
+          <p>
+            Explore relevant job roles and identify opportunities that match
+            your career direction and professional skills.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="number">02 / PREPARE</div>
+          <h3>Improve your application</h3>
+          <p>
+            Use resume assistance and interview preparation tools to present
+            your experience more effectively.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="number">03 / ORGANIZE</div>
+          <h3>Track your progress</h3>
+          <p>
+            Manage applications, follow-ups and recruitment milestones from
+            one organized workspace.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="technology" class="section wrap">
+      <div class="sectionhead">
+        <span class="eyebrow">Project technology</span>
+
+        <h2>
+          Built with modern
+          <span class="gradient">development tools.</span>
+        </h2>
+
+        <p>
+          The platform combines a web interface with Python-based AI
+          application capabilities.
+        </p>
+      </div>
+
+      <div class="tech-grid">
+        <span class="tech">Python</span>
+        <span class="tech">Streamlit</span>
+        <span class="tech">HTML</span>
+        <span class="tech">CSS</span>
+        <span class="tech">JavaScript</span>
+        <span class="tech">AI / LLM</span>
+        <span class="tech">GitHub</span>
+        <span class="tech">GitHub Pages</span>
+      </div>
+    </section>
+
+    <section id="about" class="section wrap">
+      <div class="sectionhead">
+        <span class="eyebrow">About the project</span>
+
+        <h2>
+          Designed to make career
+          <span class="gradient">growth easier.</span>
+        </h2>
+
+        <p>
+          Job searching often involves multiple disconnected activities:
+          finding opportunities, preparing resumes, practicing interviews and
+          tracking applications. JobPilot AI brings these activities together
+          to create a more structured and efficient experience.
+        </p>
+      </div>
+
+      <div class="workflow">
+        <article class="workflow-item">
+          <h3>AI-powered support</h3>
+          <p>
+            Use intelligent assistance to improve career-related tasks,
+            generate useful suggestions and make better preparation decisions.
+          </p>
+        </article>
+
+        <article class="workflow-item">
+          <h3>Centralized career workspace</h3>
+          <p>
+            Keep job-search activities organized and reduce the need to
+            switch between multiple tools and platforms.
+          </p>
+        </article>
+
+        <article class="workflow-item">
+          <h3>Focused user experience</h3>
+          <p>
+            A clean interface helps users focus on finding opportunities,
+            preparing applications and progressing toward interviews.
+          </p>
+        </article>
+
+        <article class="workflow-item">
+          <h3>Future-ready platform</h3>
+          <p>
+            The project can be extended with more AI features, integrations,
+            analytics and personalized career recommendations.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="launch" class="section wrap">
+      <div class="cta">
+        <div>
+          <h2>Ready to explore JobPilot AI?</h2>
+
+          <p>
+            Discover a smarter way to manage job discovery, resume preparation,
+            interview practice and career planning.
+          </p>
+        </div>
+
+        <!-- Replace the # link below with your deployed Streamlit app URL -->
+        <a class="btn" href="#">
+          Launch JobPilot AI ↗
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>
+      © 2026 JobPilot AI. Intelligent tools for modern career journeys.
+    </span>
+
+    <span>
+      AI-powered career assistance ✦
+    </span>
+  </footer>
 </body>
 </html>
