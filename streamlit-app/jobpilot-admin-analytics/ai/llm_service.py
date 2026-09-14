@@ -1,12 +1,19 @@
-import ollama
+import os
+from openai import OpenAI
 
 
-MODEL_NAME = "llama3.2"
+# OpenAI model
+MODEL_NAME = "gpt-4o-mini"
+
+# Read API key from environment variable / Streamlit Secrets
+client = OpenAI(
+    api_key=os.environ.get("OPENAI_API_KEY")
+)
 
 
 def generate_ai_response(prompt):
 
-    response = ollama.chat(
+    response = client.chat.completions.create(
         model=MODEL_NAME,
         messages=[
             {
@@ -14,9 +21,10 @@ def generate_ai_response(prompt):
                 "content": prompt,
             }
         ],
+        temperature=0.7,
     )
 
-    return response["message"]["content"]
+    return response.choices[0].message.content
 
 
 def generate_ai_interview_questions(
