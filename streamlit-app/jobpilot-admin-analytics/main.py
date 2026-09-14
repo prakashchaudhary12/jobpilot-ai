@@ -1,52 +1,72 @@
 
-# --- JobPilot authentication layer ---
+# -----------------------------
+# JobPilot Authentication
+# -----------------------------
+
 import streamlit as st
-from auth_db import init_auth_db, register_user, login_user, list_users, set_user_role
+import streamlit_authenticator as stauth
+
+from auth_db import (
+    init_auth_db,
+    register_user,
+    login_user,
+    list_users,
+    set_user_role,
+)
+
+from user_data_db import (
+    init_user_data_db,
+    save_user_item,
+    get_user_items,
+)
+
 init_auth_db()
-from user_data_db import init_user_data_db, save_user_item, get_user_items
 init_user_data_db()
 
-if "jp_user" not in st.session_state:
-    st.session_state.jp_user = None
 
-if st.session_state.jp_user is None:
-    st.set_page_config(page_title="JobPilot AI - Login", page_icon="🔐", layout="centered")
-    st.title("🔐 JobPilot AI")
-    st.caption("Sign in to manage your personal jobs, resumes and applications.")
-    login_tab, register_tab = st.tabs(["Login", "Create account"])
-    with login_tab:
-        with st.form("login_form"):
-            email = st.text_input("Email")
-            password = st.text_input("Password", type="password")
-            submitted = st.form_submit_button("Login")
-            if submitted:
-                user = login_user(email, password)
-                if user:
-                    st.session_state.jp_user = user
-                    st.rerun()
-                else:
-                    st.error("Invalid email or password.")
-    with register_tab:
-        with st.form("register_form"):
-            name = st.text_input("Full name")
-            email = st.text_input("Email", key="reg_email")
-            password = st.text_input("Password (minimum 8 characters)", type="password", key="reg_password")
-            confirm = st.text_input("Confirm password", type="password")
-            submitted = st.form_submit_button("Create account")
-            if submitted:
-                if password != confirm:
-                    st.error("Passwords do not match.")
-                else:
-                    ok, message = register_user(name, email, password)
-                    (st.success if ok else st.error)(message)
+# Replace this hash with the hash generated for your password
+credentials = {
+    "usernames": {
+        "admin": {
+            "name": "Admin",
+            "password": "$2b$12$REPLACE_WITH_YOUR_HASH"
+        }
+    }
+}
+
+
+authenticator = stauth.Authenticate(
+    credentials,
+    "jobpilot_auth_cookie",
+    "jobpilot_auth_signature",
+    cookie_expiry_days=7,
+)
+
+
+name, authentication_status, username = authenticator.login(
+    location="main"
+)
+
+
+if authentication_status is False:
+    st.error("Username or password is incorrect.")
     st.stop()
 
-st.sidebar.success(f"Logged in: {st.session_state.jp_user['name']}")
-st.sidebar.caption(f"Role: {st.session_state.jp_user.get('role', 'user').title()}")
-if st.sidebar.button("Logout"):
-    st.session_state.jp_user = None
-    st.rerun()
-# --- End authentication layer ---
+
+if authentication_status is None:
+    st.warning("Please enter your username and password.")
+    st.stop()
+
+
+if authentication_status:
+    authenticator.logout(
+        "Logout",
+        "sidebar",
+    )
+
+    st.sidebar.success(f"Logged in: {name}")
+
+    # Your dashboard code continues below
 
 
 # --- User-specific data page ---
