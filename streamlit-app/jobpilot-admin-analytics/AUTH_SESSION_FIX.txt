@@ -1,0 +1,14 @@
+AUTH SESSION FIX
+
+The previous build used st.session_state["user_id"], but main.py stores
+the authenticated account in st.session_state["jp_user"].
+
+This build updates ownership.py to read:
+    st.session_state["jp_user"]["id"]
+
+If you still see an authentication error:
+1. Stop Streamlit with Ctrl+C.
+2. Start it again:
+       streamlit run main.py
+3. Log out and log back in.
+4. Do not open an old browser tab/session.

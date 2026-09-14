@@ -1,0 +1,13 @@
+AUTOMATIC JOB SEARCH
+
+1. Run install_requirements.bat.
+2. Configure .env from .env.example:
+   JOB_SEARCH_API_URL=your authorized job-search API
+   JOB_SEARCH_API_KEY=your API key
+3. Run run_jobpilot.bat.
+4. Select Automatic Job Search.
+5. Paste resume text, set roles/location/limit.
+6. Enable automatic refresh and keep Streamlit running.
+
+The system uses authorized providers only. It does not bypass CAPTCHA, OTP,
+login security, rate limits, or portal restrictions.

@@ -1,0 +1,22 @@
+JOBPILOT AI - FINAL SETUP
+
+1. Extract this ZIP.
+2. Open the inner jobpilot project folder.
+3. Double-click install_requirements.bat.
+4. Configure .env using .env.example.
+5. Double-click run_jobpilot.bat.
+
+The agent supports:
+- job discovery through an authorized provider
+- duplicate prevention
+- resume/JD skill matching
+- match scoring
+- ranked job storage
+- CSV export
+- application status tracking foundation
+
+Important:
+- Do not share API keys, passwords, cookies, or OTPs.
+- CAPTCHA, OTP, login and final submission must remain user-confirmed.
+- Do not add invented skills to a resume.
+- Continuous execution requires the computer or server to remain running.

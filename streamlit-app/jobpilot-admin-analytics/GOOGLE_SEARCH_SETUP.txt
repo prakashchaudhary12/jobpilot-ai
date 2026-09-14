@@ -1,0 +1,17 @@
+GOOGLE JOB SEARCH SETUP
+
+1. Create a Google Cloud project.
+2. Enable the Custom Search JSON API.
+3. Create an API key.
+4. Create a Programmable Search Engine at https://programmablesearchengine.google.com/
+5. Configure it to search the web or selected job sites.
+6. Copy the Search engine ID (cx).
+7. Create .env from .env.example:
+   GOOGLE_API_KEY=your_key
+   GOOGLE_CSE_ID=your_search_engine_id
+8. Run install_requirements.bat and then run_jobpilot.bat.
+9. Open Automatic Job Search.
+
+Google returns search results/snippets. Full descriptions may not be available
+on every result. The system does not bypass login, CAPTCHA, OTP, robots rules,
+rate limits, or website restrictions.

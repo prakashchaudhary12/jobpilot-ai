@@ -1,0 +1,25 @@
+JOBPILOT COMPLETE USER ISOLATION
+
+This version adds user_id to the SQLAlchemy models and filters the main
+resume, job, application, and interview service queries by the authenticated
+Streamlit session user.
+
+On startup, app/ownership_migration.py adds missing user_id columns to an
+existing SQLite database. Existing legacy rows with NULL user_id are not
+automatically assigned to any account. Back up your database before use.
+
+Test:
+1. Start: streamlit run main.py
+2. Login as User A and create a resume/job/application/interview question.
+3. Logout.
+4. Login as User B.
+5. Confirm User B cannot see or modify User A records.
+
+Run the audit:
+python audit_user_isolation.py
+
+Production:
+- Use PostgreSQL.
+- Make user_id NOT NULL after migrating legacy records.
+- Add foreign key user_id -> users.id.
+- Consider PostgreSQL Row Level Security.

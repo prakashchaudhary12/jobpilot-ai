@@ -1,0 +1,13 @@
+# JobPilot AI
+
+## First-time setup
+Double-click:
+
+install_requirements.bat
+
+## Run the application
+Double-click:
+
+run_jobpilot.bat
+
+Do not commit or share your `.env` file, passwords, API keys, browser cookies, or login sessions.

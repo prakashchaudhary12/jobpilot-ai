@@ -1,0 +1,12 @@
+USER-SPECIFIC DATA UPDATE
+
+The app now includes a personal-data area in the sidebar.
+Each saved item is associated with the logged-in user's ID.
+
+Run:
+python -m pip install -r requirements.txt
+streamlit run main.py
+
+This is a local SQLite implementation. For public production deployment,
+migrate to PostgreSQL and add complete per-user filtering to every existing
+resume/job/application service.

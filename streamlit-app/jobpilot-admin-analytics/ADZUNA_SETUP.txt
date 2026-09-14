@@ -1,0 +1,6 @@
+1. Copy .env.example to .env
+2. Set:
+ADZUNA_APP_ID=7270e3c6
+ADZUNA_APP_KEY=75b1b2f888c756072c41416bc35f72c5
+3. Install: python -m pip install -r requirements.txt
+4. Run: streamlit run main.py
